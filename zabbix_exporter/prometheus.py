@@ -31,6 +31,7 @@ def generate_latest(registry=core.REGISTRY):
             metric.name, metric.documentation.replace('\\', r'\\').replace('\n', r'\n')))
         output.append('\n# TYPE {0} {1}\n'.format(metric.name, metric.type))
         for sample in metric.samples:
+            print(sample)
             if len(sample) == 3:
                 name, labels, value = sample
                 timestamp = None
