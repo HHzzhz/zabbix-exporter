@@ -112,7 +112,7 @@ class ZabbixCollector(object):
         # does not come in same order as prometheus metric names
         metric_families = OrderedDict()
         items = self.zapi.item.get(output=['name', 'key_', 'hostid', 'lastvalue', 'lastclock', 'value_type'],
-                                   sortfield='key_')
+                                   sortfield='key_',monitored='TRUE')
 
         for item in items:
             metric = self.process_metric(item)
